@@ -2,7 +2,7 @@
 lock "~> 3.10.2"
 
 set :application, "perfumes-chavez"
-set :repo_url, "git@github.com:CarlosGAC/perfumes-chavez.git"
+set :repo_url, "git@github.com:CarlosGAC/perfumes-chavezp.git"
 
 set :deploy_to, '/home/deploy/perfumes-chavez'
 
