@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="title">
+    <h2>Abonos</h2>
+    <%= link_to "Atrás", bill_path(@bill) %>
+  </div>
+  <div class="cobros-container">
+    <div class="table-ul-1">
+      <ul>
+        <li>Monto</li>
+        <li>Fecha</li>
+        <li> </li>
+        <!-- <li colspan="3"></li> -->
+      </ul>
+    </div>
+    <div class="table-ul-2">
+      <% @payments.each do |payment| %>
+        <ul>
+          <li><%= payment.amount %></li>
+          <li><%= payment.payment_date %></li>
+          <% if @bill.status == "Pendiente" %>
+            <li><%= link_to 'Editar', edit_bill_payment_path(@bill, payment) %></li>
+          <% else %>
+            <li> </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="show-links">
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<div class="instruction-box">
+  <div class="ib-title" onclick="toggleShow()">
+    <p>Mensaje bien barbaro</p>
+  </div>
+  <div id="inst_show-more" class="ib-text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      
+  </div>
+</div> 
+<div class="global-container">
+  <div class="title">
+    <h2>Perfumes</h2>
+    <%= link_to 'Nuevo Perfume', new_perfume_path %>
+  </div>
+
+  <div class="search-container">
+    <%= form_tag(perfumes_path, method: :get) do %>
+      <ul>
+        <li><%= text_field_tag :name, params[:name], placeholder: "Nombre" %></li>
+        <li><%= number_field_tag :buy_price, params[:buy_price], placeholder: "Precio de compra", step: 0.5 %></li>
+        <li><%= number_field_tag :retail_price, params[:retail_price], placeholder: "Precio de venta", step: 0.5 %></li>
+        <li><%= number_field_tag :stock, params[:stock], placeholder: "Stock", step: 1 %></li>
+        <li><%= number_field_tag :presentation, params[:presentation], placeholder: "Presentacion" %></li>
+        <li><%= select_tag :public_target, options_for_select(Perfume.public_targets), include_blank: true %></li>
+        <li><%= select_tag :classification, options_for_select(Perfume.classifications), include_blank: true %></li>
+        <li><%= select_tag :category, options_for_select(Perfume.categories), include_blank: true %></li>
+        <li><%= select_tag :visibility, options_for_select(Perfume.visibilities), include_blank: true %></li>
+        <li><%= submit_tag "Buscar"%></li>
+      </ul>
+    </div>
+
+    <%end%>
+
+  <div class="producto-container">
+    <% @perfumes.each do |perfume| %>
+    <div class="producto-iis">
+      <div class="producto-img">
+        <% if perfume.picture.exists? %>
+        <%= image_tag perfume.picture.url(:thumb) %>
+        <%end%>
+      </div>
+      <div class="producto-info">
+        <div class="info_show-less">
+          <ul>
+            <li>Nombre </li>
+            <li><%= perfume.name %></li>
+          </ul>
+
+          <ul>
+            <li>Precio  de venta </li> <!--real-->
+            <li><%= perfume.retail_price %></li>
+          </ul>
+
+        </div>
+
+        <div id="info_show-more">
+          <ul>
+            <li>Stock </li>
+            <li><%= perfume.stock %></li>
+          </ul>
+          <ul>
+            <li>Público </li>
+            <li><%= perfume.public_target %></li>
+          </ul>
+          <ul>
+            <li>Clasificación </li>
+            <li><%= perfume.classification %></li>
+          </ul>
+          <ul>
+            <li>Categoria </li>
+            <li><%= perfume.category %></li>
+          </ul>
+          <ul>
+            <li>Presentación </li>
+            <li><%= perfume.presentation %> mililitros</li>
+          </ul>
+          <ul>
+            <li>Visibilidad </li>
+            <li><%= perfume.visibility %></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <!-- <li><button onclick="toggleShow">Mostrar mas</button></li> -->
+            <!-- <a href="javascript:;" onclick="toggleShow()" class="button_show-more">Mostrar mas</a> -->
+          </ul>
+        </div>
+      </div>
+      <div class="producto-se">
+        <!-- <%= link_to 'Mostrar', perfume %> -->
+        <%= link_to 'Editar', edit_perfume_path(perfume) %>
+        <!-- <%= link_to 'Destroy', perfume, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+      </div>
+    </div>
+    <% end %>
+    <!-- <%= link_to 'New Perfume', new_perfume_path %> -->
+  </div>
+</div>

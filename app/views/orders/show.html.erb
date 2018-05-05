@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="show-container">
+    <ul>
+      <li><strong>Perfume</strong></li>
+      <li><%= @order.perfume.name %></li>
+    </ul>
+    <p>
+      <li><strong>Precio</strong></li>
+      <li><%= @order.perfume.retail_price %></li>
+    </ul>
+    <ul>
+      <li><strong>Cantidad</strong></li>
+      <li><%= @order.amount %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Estado</strong></li>
+      <li><%= @order.status %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Total</strong></li>
+      <li><%= @order.total %></li>
+    </ul>
+    <div class="show-links get-down">
+      <li><%= link_to 'Editar', edit_order_datum_order_path(@order) %></li> |
+      <li><%= link_to 'Atrás', order_datum_orders_path %></li>
+    </div>
+  </div>
+</div>

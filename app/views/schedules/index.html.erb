@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="title">
+    <h2>Horarios</h2>
+  </div>
+  <div class="schedules-container">
+    <div class="table-ul-1">
+      <ul>
+        <li>Día</li>
+        <li>Hora</li>
+        <li>Lugar</li>
+        <li>Cliente</li>
+        <li> </li>
+        <li> </li>
+        <!-- <li colspan="3"></li> -->
+      </ul>
+    </div>
+
+    <div class="table-ul-2">
+      <% @schedules.each do |schedule| %>
+        <ul>
+          <li><%= schedule.day %></li>
+          <li><%= schedule.hour.strftime("%I:%M %p") %></li>
+          <li><%= schedule.place %></li>
+          <li><%= schedule.client.name %></li>
+          <li class="less-width"><%= link_to "Editar", edit_client_schedule_path(@client, schedule) %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="show-links">
+    <%= link_to "Atrás", client_path(@client) %>
+  </div>
+</div>

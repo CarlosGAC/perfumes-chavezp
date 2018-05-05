@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="show-container">
+    <ul>
+      <li><strong>Fecha</strong></li>
+      <li><%= @bill.bill_date %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Nombre del Cliente</strong></li>
+      <li><%= @bill.client.name %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Perfume</strong></li>
+      <li><%= @bill.perfume.name %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Clasificación</strong></li>
+      <li><%= @bill.perfume.classification %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Cantidad</strong></li>
+      <li><%= @bill.amount %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Total</strong></li>
+      <li><%= @bill.total %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Resto</strong></li>
+      <% @payments.each do |pay| %>
+        <% @resto = @resto - pay.amount %>
+      <%end%>
+      <li><%= @resto %></li>
+    </ul>
+
+  </div>
+  <div class="show-links get-down">
+    <% if @bill.status == "Pendiente" %>
+      <li><%= link_to 'Nuevo abono', new_bill_payment_path(@bill) %></li>
+    <% end %>
+    <li><%= link_to 'Abonos', bill_payments_path(@bill)%></li>
+    <li><%= link_to 'Editar', edit_bill_path(@bill) %></li>
+    <li><%= link_to 'Atrás', bills_path %></li>
+  </div>
+</div>

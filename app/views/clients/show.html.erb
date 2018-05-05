@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="show-container">
+    <ul>
+      <li><strong>Nombre </strong></li>
+      <li><%= @client.name %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Dirección</strong></li>
+      <li><%= @client.address %></li>
+    </ul>
+    
+    <ul>
+      <li><strong>Número exterior</strong></li>
+      <li><%= @client.external_address_num %></li>
+    </ul>
+    
+    <ul>
+      <li><strong>Número interior</strong></li>
+      <li><%= @client.internal_address_num %></li>
+    </ul>
+    
+    <ul>
+      <li><strong>Codigo Postal</strong></li>
+      <li><%= @client.zipcode %></li>
+    </ul>
+    
+    <ul>
+      <li><strong>Ciudad</strong></li>
+      <li><%= @client.city %></li>
+    </ul>
+    
+    <ul>
+      <li><strong>Estado</strong></li>
+      <li><%= @client.state %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Número de teléfono</strong></li>
+      <li><%= @client.phone_number %></li>
+    </ul>
+  </div>
+  <div class="show-links get-down">
+    <li><%= link_to 'Nuevo Horario', new_client_schedule_path(@client) %></li>
+    <li><%= link_to 'Horarios', client_schedules_path(@client)%></li>
+    <li><%= link_to 'Editar', edit_client_path(@client) %></li>
+    <li><%= link_to 'Atrás', clients_path %></li>
+  </div>
+</div>

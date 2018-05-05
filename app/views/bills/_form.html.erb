@@ -1,0 +1,46 @@
+<%= form_with(model: bill, local: true) do |form| %>
+  <% if bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this order_datum from being saved:</h2>
+
+      <ul>
+      <% bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-container">
+    <ul>
+      <li><%= form.label :bill_date, "Fecha" %></li>
+      <li><%= form.date_select :bill_date, id: :bill_date %></li>
+    </ul>
+
+    <ul>
+      <li><%= form.label :client_name, "Cliente" %></li>
+      <li><%= form.text_field :client_name, id: :bill_client_name, data: { autocomplete: autocomplete_client_name_bills_path } %></li>
+
+    </ul>
+
+    <ul>
+      <li><%= form.label :perfume_name, "Nombre del perfume" %></li>
+      <li><%= form.text_field :perfume_name, id: :bill_perfume_name, data: { autocomplete: autocomplete_perfume_name_bills_path } %></li>
+    </ul>
+
+    <ul>
+      <li><%= form.label :perfume_classification, "Clasificacion" %></li>
+      <li><%= form.select :perfume_classification, Perfume.classifications.keys %></li>
+    </ul>
+
+    <ul>
+      <li><%= form.label :amount, "Cantidad" %></li>
+      <li><%= form.number_field :amount, step: 1 %></li>
+    </ul>
+
+
+    <ul>
+      <li class="li-submit"><%= form.submit "Agregar"%></li>
+    </ul>
+
+  </div>
+<% end %>

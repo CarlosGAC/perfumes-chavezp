@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perfumes Chavez Ruiz</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section id="header">
+      <div class="global-logo">
+        <!-- <%= link_to ' ', {controller: "welcome"}, id: "logo" %> -->
+        <%= link_to(image_tag("Logo2chico.png", id: "logo", :title => "Home"), "/") %>
+        <!-- ,class: "index_logo" -->
+      </div>
+      <div class="menu">
+        <%= link_to "Perfumes", {controller: "perfumes"}%>
+        <%= link_to "Pedidos de Clientes", {controller: "order_data"}%>
+        <%= link_to "Clientes", {controller: "clients"}%>
+        <%= link_to "Cuentas", {controller: "bills"}%>
+        <%= link_to "Cobros de hoy", {action: "today", controller: "schedules"}%>
+      </div>
+    </section>
+
+    <div class="contenedor">
+      <%= yield %>
+    </div>
+  </body>
+</html>

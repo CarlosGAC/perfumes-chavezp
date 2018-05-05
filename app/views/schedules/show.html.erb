@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="show-container">
+    <ul>
+      <li><strong>Día</strong></li>
+      <li><%= @schedule.day %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Hora</strong></li>
+      <li><%= @schedule.hour %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Lugar</strong></li>
+      <li><%= @schedule.place %></li>
+    </ul>
+  </div>
+  <div class="show-links get_down">
+    <%= link_to 'Editar', edit_client_schedule_path(@schedule) %> |
+    <%= link_to 'Atrás', client_schedule_path(@schedule) %>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="title">
+    <h2>Articulos</h2>
+    <%= link_to 'Atrás', order_datum_path(@order_datum) %>
+  </div>
+  <div class="pedidos-container">
+    <div class="table-ul-1">
+      <ul>
+        <li>Nombre del perfume</li>
+        <li>Precio del perfume</li>
+        <li>Cantidad</li>
+        <li>Estado</li>
+        <li>Subtotal</li>
+        <li> </li>
+        <!-- <li colspan="3"></li> -->
+      </ul>
+    </div>
+    <div class="table-ul-2">
+      <% @orders.each do |order| %>
+        <% @total = @total + order.total %>
+        <ul>
+          <li><%= order.perfume.name %></li>
+          <li><%= order.perfume.retail_price %></li>
+          <li><%= order.amount %></li>
+          <li><%= order.status %></li>
+          <li><%= order.total %></li>
+          <li><%= link_to 'Editar', edit_order_datum_order_path(@order_datum, order) %></li>
+        </ul>
+      <% end %>
+    </div>
+    <div>
+      
+      <li style="font-weight: bold;">TOTAL: <%= @total %></li>
+    </div>
+  </div>
+</div>

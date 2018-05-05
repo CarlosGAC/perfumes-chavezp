@@ -1,0 +1,67 @@
+  <%= form_for(perfume) do |f| %>
+  <% if perfume.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(perfume.errors.count, "errores") %> han evitado que se guardara el perfume:</h3>
+
+    <ul>
+      <% perfume.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="form-container">
+
+    <ul>
+      <li><%= f.label :name, 'Nombre'%></li>
+      <li><%= f.text_field :name %></li>
+    </ul>
+
+    <ul>
+      <li><%= f.label :buy_price, 'Precio de Compra' %></li>
+      <li><%= f.number_field :buy_price, step: 0.1%></li>
+    </ul>
+
+    <ul>
+      <li><%= f.label :retail_price, 'Precio de Venta' %></li>
+      <li><%= f.number_field :retail_price, step: 0.1%></li>
+    </ul>
+
+    <ul>
+      <li><%= f.label :stock %></li>
+      <li><%= f.number_field :stock, step: 1 %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :public_target, 'Publico' %></li>
+      <li><%= f.select :public_target, Perfume.public_targets.keys %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :category, 'Categoria' %></li>
+      <li><%= f.select :category, Perfume.categories.keys %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :classification, 'Clasificación' %></li>
+      <li><%= f.select :classification, Perfume.classifications.keys %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :presentation %></li>
+      <li><%= f.number_field :presentation %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :visibility, 'Visibilidad' %></li>
+      <li><%= f.select :visibility, Perfume.visibilities.keys %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :picture, 'Imagen' %></li>
+      <li><%= f.file_field :picture %></li>
+    </ul>
+
+
+
+
+    <ul>
+      <li class="li-submit"><%= f.submit "Agregar" %></li>
+    </ul>
+    <% end %>
+
+  </div>

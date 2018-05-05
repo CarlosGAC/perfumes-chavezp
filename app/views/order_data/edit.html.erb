@@ -1,0 +1,13 @@
+<div class="global-container">
+  <div class="title t-extra">
+    <h2>Editar Pedido</h2>
+    <%= link_to 'Volver a la orden', order_datum_path(@order_datum) %>
+    <%= link_to 'Volver al inicio', order_data_path %>
+  </div>
+  <div class="new-container">
+    <%= render 'form', order_datum: @order_datum %>
+    <div class="show-links">
+      
+    </div>
+  </div>
+</div>

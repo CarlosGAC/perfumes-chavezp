@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="title">
+    <h2>Clientes</h2>
+    <%= link_to 'Nuevo Cliente', new_client_path %>
+  </div>
+  <div class="search-container">
+    <%= form_tag(clients_path, method: :get) do %>
+      <ul>
+        <li><%= text_field_tag :name, params[:name], placeholder: "Nombre" %></li>
+        <li><%= text_field_tag :address, params[:address], placeholder: "Dirección" %></li>
+        <li><%= text_field_tag :zipcode, params[:zipcode], placeholder: "Codigo Postal" %></li>
+        <li><%= text_field_tag :colony, params[:colony], placeholder: "Colonia" %></li>
+        <li><%= text_field_tag :city, params[:city], placeholder: "Ciudad" %></li>
+        <li><%= text_field_tag :state, params[:state], placeholder: "Estado" %></li>
+        <li><%= text_field_tag :phone_number, params[:phone_number], placeholder: "Número telefónico" %></li>
+        <li><%= submit_tag "Buscar"%></li>
+    </ul>
+    <%end%>
+  </div>
+  <div class="clientes-container">
+    <div class="table-ul-1">
+      <ul>
+        <li>Nombre</li>
+        <li>Direccion</li>
+        <li>Numero</li>
+        <li>Numero de telefono</li>
+        <li> </li>
+        <li> </li>
+        <!-- <li colspan="3"></li> -->
+      </ul>
+    </div>
+
+    <div class="table-ul-2">
+      <% @clients.each do |client| %>
+        <ul>
+          <li><%= client.name %></li>
+          <li><%= client.address %></li>
+          <li><%= client.external_address_num %></li>
+          <li><%= client.phone_number %></li>
+          
+          <li class="less-width"><%= link_to 'Mostrar', client %></li>
+          <li class="less-width"><%= link_to 'Editar', edit_client_path(client) %></li>
+          <!-- <li><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

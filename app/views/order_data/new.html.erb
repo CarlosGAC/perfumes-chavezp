@@ -1,0 +1,13 @@
+<div class="global-container">
+  <div class="title t-extra">
+    <h2>Nuevo Pedido</h2>
+    <%= link_to 'Atrás', order_data_path %>
+    <p id="notice"><%= notice %></p>
+
+  </div>
+  <div class="new-container">
+    <%= render 'form', order_datum: @order_datum %>
+    <div class="show-links">
+    </div>
+  </div>
+</div>

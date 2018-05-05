@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="show-container">
+    <ul>
+      <li><strong>Monto</strong></li>
+      <li><%= @payment.amount %></li>
+    </ul>
+
+  </div>
+  <div class="show-links get-down">
+    <li><%= link_to 'Editar', edit_bill_payment_path(@payment) %></li> |
+    <li><%= link_to 'Atrás', bill_payment_path(@payment) %></li>
+  </div>
+</div>

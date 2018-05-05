@@ -1,0 +1,64 @@
+<%= form_for(client) do |f| %>
+  <% if client.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(client.errors.count, "errores") %> evitó que se guardara el cliente:</h3>
+
+      <ul>
+      <% client.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-container">
+    <ul>
+      <li><%= f.label :name, 'Nombre' %></li>
+      <li><%= f.text_field :name %></li>
+    </ul>
+
+    <ul>
+      <li><%= f.label :address, 'Dirección' %></li>
+      <li><%= f.text_field :address %></li>
+    </ul>
+    
+    <ul>
+      <li><%= f.label :external_address_num, 'Número exterior' %></li>
+      <li><%= f.number_field :external_address_num %></li>
+    </ul>
+    
+    <ul>
+      <li><%= f.label :internal_address_num, 'Número interior' %></li>
+      <li><%= f.number_field :internal_address_num %></li>
+    </ul>
+    
+    <ul>
+      <li><%= f.label :zipcode, 'Codigo Postal' %></li>
+      <li><%= f.text_field :zipcode, data: { autocomplete: autocomplete_postal_code_c_postal_clients_path } %></li>
+    </ul>
+    
+    <ul>
+      <li><%= f.label :colony, 'Colonia' %></li>
+      <li><%= f.text_field :colony, id: 'colonia' %></li>
+    </ul>
+    
+    <ul>
+      <li><%= f.label :city, 'Ciudad' %></li>
+      <li><%= f.text_field :city, id: 'ciudad'%></li>
+    </ul>
+    
+    <ul>
+      <li><%= f.label :state, 'Estado' %></li>
+      <li><%= f.text_field :state, id: 'estado' %></li>
+    </ul>
+
+    <ul>
+      <li><%= f.label :phone_number, 'Número telefónico'  %></li>
+      <li><%= f.text_field :phone_number %></li>
+    </ul>
+    
+
+    <ul>
+      <li class="li-submit"><%= f.submit "Agregar" %></li>
+    </ul>
+  </div>
+<% end %>

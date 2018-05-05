@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="title">
+    <h2>Cuentas</h2>
+    <%= link_to 'Nueva Cuenta', new_bill_path %>
+  </div>
+  <div class="cuentas-container">
+    <div class="table-ul-1 table-ul-ME">
+      <ul>
+        <li>Fecha</li>
+        <li>Nombre del Cliente</li>
+        <li>Perfume</li>
+        <li>Clasificación</li>
+        <li>Cantidad</li>
+        <li>Total</li>
+        <li>Estado</li>
+        <li> </li>
+        <li> </li>
+        <li> </li>
+        <!-- <li colspan="3"></li> -->
+      </ul>
+    </div>
+    <div class="table-ul-2">
+      <% @bills.each do |bill| %>
+        <ul>
+          <li><%= bill.bill_date %></li>
+          <li><%= bill.client.name %></li>
+          <li><%= bill.perfume.name %></li>
+          <li><%= bill.perfume.classification %></li>
+          <li><%= bill.amount %></li>
+          <li><%= bill.total %></li>
+          <li><%= bill.status %></li>
+          <li class="ntb1"><%= link_to 'Mostrar', bill %></li>
+          <li class="ntb2"><%= link_to 'Editar', edit_bill_path(bill) %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

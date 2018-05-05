@@ -1,0 +1,13 @@
+<div class="global-container">
+  <div class="title t-extra">
+    <h2>Nuevo Abono</h2>
+    <%= link_to 'Atrás', bill_path(@bill) %>
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class="new-container">
+    <%= render 'form', payment: @payment %>
+  </div>
+  <div class="show-links">
+    <!-- <%= link_to 'Atrás', bill_path(@bill) %> -->
+  </div>
+</div>

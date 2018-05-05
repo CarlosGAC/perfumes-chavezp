@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bill_date: 2018-04-02
+
+two:
+  bill_date: 2018-04-02

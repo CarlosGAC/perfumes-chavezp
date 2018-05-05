@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="show-container">
+    <ul>
+      <li><strong>Fecha de la Orden</strong></li>
+      <li><%= @order_datum.order_date %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Nombre del Cliente</strong></li>
+      <li><%= @order_datum.client.name %></li>
+    </ul>
+
+  </div>
+  <div class="show-links get-down">
+    <li><%= link_to 'Nuevo Articulo', new_order_datum_order_path(@order_datum) %></li>
+    <li><%= link_to 'Articulos', order_datum_orders_path(@order_datum) %></li>
+    <li><%= link_to 'Editar', edit_order_datum_path(@order_datum) %></li>
+    <li><%= link_to 'Atrás', order_data_path %></li>
+  </div>
+</div>

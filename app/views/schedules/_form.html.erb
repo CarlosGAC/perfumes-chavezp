@@ -1,0 +1,32 @@
+<%= form_with(model: schedule, url: client_schedules_path, local: true) do |form| %>
+  <% puts request.url %>
+  <% puts request.path %>
+  <% if schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% schedule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-container">
+    <ul>
+      <li><%= form.label :day, "Día" %></li>
+      <li><%= form.date_select :day, id: :schedule_day %></li>
+    </ul>
+    <ul>
+      <li><%= form.label :hour, "Horario" %></li>
+      <li><%= form.time_select :hour, id: :schedule_hour %></li>
+    </ul>
+    <ul>
+      <li><%= form.label :place, "Lugar" %></li>
+      <li><%= form.text_field :place, id: :schedule_place %></li>
+    </ul>
+    <ul>
+      <li class="li-submit"><%= form.submit "Agregar" %></li>
+    </ul>
+    <% end %>
+  </div>

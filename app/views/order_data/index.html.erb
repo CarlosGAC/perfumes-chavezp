@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="title">
+    <h2>Pedidos a Clientes</h2>
+    <%= link_to 'Nuevo Pedido', new_order_datum_path, class: "pac-a" %>
+  </div>
+  <div class="pedidos-d-container">
+    <div class="table-ul-1">
+      <ul>
+        <!-- Order date -->
+        <li>Fecha pedido</li>
+        <li>Nombre cliente</li>
+        <li> </li>
+        <li> </li>
+        <li> </li>
+        <!-- <li colspan="3"></li> -->
+      </ul>
+    </div>
+
+    <div class="table-ul-2">
+      <% @order_data.each do |order_datum| %>
+        <ul>
+          <li><%= order_datum.order_date %></li>
+          <li><%= order_datum.client.name %></li>
+          <li class="ntb1"><%= link_to 'Mostrar', order_datum %></li>
+          <li class="ntb2"><%= link_to 'Editar', edit_order_datum_path(order_datum) %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

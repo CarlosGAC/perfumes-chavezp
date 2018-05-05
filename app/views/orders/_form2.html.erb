@@ -1,0 +1,35 @@
+<%= form_with(model: order, url: order_datum_order_path, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-container">
+    <ul>
+      <li><%= form.label :perfume_name, "Nombre del perfume" %></li>
+      <li><%= form.text_field :perfume_name, id: :perfume_name, data: { autocomplete: autocomplete_perfume_name_order_datum_orders_path } %></li>
+    </ul>
+
+    <ul>
+      <li><%= form.label :amount, "Cantidad" %></li>
+      <li><%= form.number_field :amount, id: :order_amount %></li>
+    </ul>
+
+    <ul>
+      <li><%= form.label :status, "Estado" %></li>
+      <li><%= form.select :status, Order.statuses.keys %></li>
+    </ul>
+
+    <ul>
+      <li class="li-submit"><%= form.submit "Agregar"%></li>
+    </ul>
+
+  </div>
+<% end %>

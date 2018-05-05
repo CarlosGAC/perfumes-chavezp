@@ -1,0 +1,34 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+masdecincuenta:
+  name: asdf1asdf1asdf1asdf1asdf1asdf1asdf1asdf1asdf1asdf18
+  buy_price: 1.5
+  retail_price: 1.5
+  stock: 1
+  public_target: 1
+  classification: 1
+  category: 1
+  presentation: 1
+  visibility: 1
+
+cincuenta:
+  name: asdf1asdf1asdf1asdf1asdf1asdf1asdf1asdf1asdf1asdf1
+  buy_price: 1.5
+  retail_price: 1.5
+  stock: 1
+  public_target: 1
+  classification: 1
+  category: 1
+  presentation: 1
+  visibility: 1
+
+menosdecincuenta:
+  name: menosdecincuentacaracteres
+  buy_price: 1.5
+  retail_price: 1.5
+  stock: 1
+  public_target: 1
+  classification: 1
+  category: 1
+  presentation: 1
+  visibility: 1

@@ -1,0 +1,12 @@
+<div class="global-container">
+  <div class="title t-extra">
+    <h2>Editar Cuenta</h2>
+    <%= link_to 'Volver a la cuenta', bill_path(@bill) %>
+    <%= link_to 'Volver al inicio', bills_path %>
+  </div>
+  <div class="new-container">
+    <%= render 'form', bill: @bill %>
+    <div class="show-links">
+    </div>
+  </div>
+</div>

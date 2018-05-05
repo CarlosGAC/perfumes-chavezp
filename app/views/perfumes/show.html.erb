@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="global-container">
+  <div class="show-container">
+    <ul>
+      <li><strong>Nombre </strong></li>
+      <li><%= @perfume.name %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Precio de compra </strong></li>
+      <li><%= @perfume.buy_price %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Precio de venta </strong></li>
+      <li><%= @perfume.retail_price %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Público </strong></li>
+      <li><%= @perfume.public_target %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Clasificación </strong></li>
+      <li><%= @perfume.classification %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Categoria </strong></li>
+      <li><%= @perfume.category %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Presentación</strong></li>
+      <li><%= @perfume.presentation %></li>
+    </ul>
+
+    <ul>
+      <li><strong>Visibilidad </strong></li>
+      <li><%= @perfume.visibility %></li>
+    </ul>
+
+  </div>
+  <div class="show-links get-down">
+    <li><%= link_to 'Editar', edit_perfume_path(@perfume) %></li>
+    <li><%= link_to 'Atrás', perfumes_path %></li>
+  </div>
+</div>

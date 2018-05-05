@@ -1,0 +1,26 @@
+<%= form_with(model: payment, url: bill_payment_path, local: true) do |form| %>
+  <% if payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+      <ul>
+      <% payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-container">
+  <div class="field">
+    <%= form.label :payment_date, "Fecha" %>
+    <%= form.date_select :payment_date, id: :payment_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount, "Monto" %>
+    <%= form.text_field :amount, id: :payment_amount %>
+  </div>
+  <ul>
+    <li class="li-submit"><%= form.submit "Agregar"%></li>
+  </ul>
+<% end %>
