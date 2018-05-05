@@ -1,3 +1,228 @@
 // Place all the styles related to the Payments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.table-ul-2 ul {
+  height: 50px;
+}
+// .table-ul-1 li, .table-ul-2 li
+//   min-width: 100px;
+
+.table-ul-ME {
+  margin-bottom: 20px;
+}
+
+
+// show
+.show-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  font-size: 1.5em;
+}
+.show-container ul {
+  padding-left: 0;
+  margin-right: 100px;
+  min-width: 210px;
+}
+.show-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 50px;
+}
+.stay-back {
+  justify-content: flex-start;
+}
+.get-down {
+  margin-top: 50px;
+  
+}
+.show-links a {
+  margin: 0 10px;
+}
+.get_down {
+  margin-top: 50px;
+
+}
+// autocompletado
+// #ui-id-1, #ui-id-2
+.ui-menu {
+  color: $base_black;
+  background-color: $base_white;
+  border: 1px solid;
+  width: 125px;
+  padding-left: 0px;
+}
+.ui-menu-item {
+  //border-bottom: 1px solid;
+  transition: all 0.5s ease;
+  &:hover {
+    color: $base_gray;
+    background-color: $base_black;
+  }
+  &:first-child {
+    font-weight: normal;
+  }
+}
+.ui-helper-hidden-accessible {
+  display: none;
+  color: tomato;
+  margin-left: 50px;
+}
+// Cajas de instrucciones  
+.instruction-box {
+  background-color: $base_gray;
+  border: 1px solid $base_black;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  //min-height: 300px;
+  min-width: 50px;
+  width: 298px;
+  max-width: 300px;
+  -webkit-transition: all 0.7s ease;
+}
+
+.instruction-box p {
+  font-size: 1em;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+.ib-title {
+  display: flex;
+  align-items: center;
+  
+  
+  color: $base_gray;
+  background-color: $base_black;
+  height: 50px;
+  width: 100%;
+}
+
+.button_show-more {
+  color: tomato;
+  background-color: "#00000000";
+  padding: 0;
+  border-bottom-style: solid;
+  border-radius: 0;
+  border-width: 1px;
+}
+// #info_show-more
+//   display: none;
+//   -webkit-transition: all 0.7s ease;
+
+// // .info_show-more
+// //   display: none;
+//
+// .info_sho-less
+//   width: 100%;
+//   &:hover
+//     .info_show-more
+//       display: none;
+//       -webkit-transition: all 0.7s ease;
+
+
+
+.producto-se {
+  display: flex;
+  justify-content: space-around;
+
+  margin-top: 10px;
+  width: 400px;
+}
+// .producto-se a
+//   background-color: #00000000;
+//   border: 1px solid $base_black;
+//   box-shadow: 1px 1px 5px $base_black;
+//   -webkit-transition: all 0.5s ease;
+//   &:hover
+//     color: $base_black;
+//     box-shadow: 2px 5px 10px $base_black;
+
+// about new and forms
+.new-container {
+  display: flex;
+  //align-items: center;
+  flex-direction: column;
+}
+.form-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+.form-container ul {
+  &:last-child {
+    height: 45px;
+  }
+}
+.li-submit {
+  height: 37px;
+}
+.li-submit input[type="submit"] {
+  font-weight: 600;
+}
+// orders
+.pedidos-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin: 5px 0;
+  width: 100%;
+}
+.pedidos {
+  display: flex;
+  flex-direction: column;
+}
+.pedidos ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  padding-left: 0;
+}
+.pedidos li {
+  margin-right: 10px;
+}
+// Clients & Cuentas
+.clientes-container, .cuentas-container, .pedidos-d-container,.pedidos-container, .schedules-container {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  flex-wrap: wrap;
+
+  margin: 5px 0;
+  width: 100%;
+}
+
+.clientes-container ul, .cuentas-container ul, .pedidos-d-container ul, .pedidos-container ul, .schedules-container ul, .cobros-container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  padding-left: 0;
+}
+.clientes-container li, .cuentas-container li, .pedidos-d-container li,.pedidos-container li, .schedules-container li, .cobros-container li {
+  font-weight: 400;
+  margin-right: 5px;
+  width: 150px;
+}
+.ntb1 {
+  max-width: 120px;
+}
+.ntb2 {
+  max-width: 100px;
+}
+.table-ul-1 li {
+  font-weight: 600;
+}
+.producto-img {
+  background-image: image-url("Not_an_image.png")
+}
