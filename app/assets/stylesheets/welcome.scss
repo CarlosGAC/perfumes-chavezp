@@ -22,7 +22,7 @@ $base_black: #191919;
 $base_gray: #DFE2DB;
 
 .index-container {
-  background-image: image-url("i-bg3.jpg");
+  background-image: url(asset-path("i-bg3.jpg"));
 }
 
 a {
