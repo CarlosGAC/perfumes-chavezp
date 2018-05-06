@@ -1,3 +1,4 @@
+require 'csv'
 namespace :db do
   
   desc "Dumps the database into db/perfumeschavez.sql"
