@@ -4,7 +4,7 @@ class Perfume < ApplicationRecord
 
   has_many :orders, inverse_of: :perfume
   has_many :bills, inverse_of: :perfume
-  has_attached_file :picture, styles: { large: "800x800", thumb: "300x300>" }, default_url: "/images/:style/PerfumeNo1.jpg"
+  has_attached_file :picture, styles: { large: "800x800", thumb: "200x200>" }, default_url: "/images/:style/PerfumeNo1.jpg"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   enum public_target: [:Hombre, :Mujer, :Niño, :Niña]
   # TODO: Investigar y colocar las categorias correctas. Brincar a perfume_test.rb
