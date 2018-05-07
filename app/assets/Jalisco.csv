@@ -1811,7 +1811,7 @@ id,c_postal,settlement,settlement_type,township,state,city
 1810,45630,Tateposco,Pueblo,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
 1811,45630,Tinajitas,Colonia,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
 1812,45630,Cantera Colorada,Fraccionamiento,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
-1813,45630,Cerro del Jagüey,Colonia,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
+1813,45630,Cerro del Jaguey,Colonia,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
 1814,45630,El Refugio,Colonia,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
 1815,45630,La Pilita,Colonia,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
 1816,45630,Alameda,Colonia,San Pedro Tlaquepaque,Jalisco,Tlaquepaque
@@ -3257,7 +3257,7 @@ id,c_postal,settlement,settlement_type,township,state,city
 3256,47281,Rangel,Congregacion,Encarnacion de Diaz,Jalisco,
 3257,47282,La Trinidad,Pueblo,Encarnacion de Diaz,Jalisco,
 3258,47282,El Tecuan,Hacienda,Encarnacion de Diaz,Jalisco,
-3259,47283,Las Güeras,Congregacion,Encarnacion de Diaz,Jalisco,
+3259,47283,Las Gueras,Congregacion,Encarnacion de Diaz,Jalisco,
 3260,47283,Los Tajos,Poblado comunal,Encarnacion de Diaz,Jalisco,
 3261,47283,El Codo,Rancheria,Encarnacion de Diaz,Jalisco,
 3262,47285,Meson de los Sauces,Congregacion,Encarnacion de Diaz,Jalisco,
@@ -3804,7 +3804,7 @@ id,c_postal,settlement,settlement_type,township,state,city
 3803,47536,San Jose del Cigarral,Rancheria,Lagos de Moreno,Jalisco,
 3804,47536,Cuatro Caminos,Rancheria,Lagos de Moreno,Jalisco,
 3805,47536,El Capricho,Rancheria,Lagos de Moreno,Jalisco,
-3806,47536,El Jagüey,Rancheria,Lagos de Moreno,Jalisco,
+3806,47536,El Jaguey,Rancheria,Lagos de Moreno,Jalisco,
 3807,47536,Jacales,Rancheria,Lagos de Moreno,Jalisco,
 3808,47536,La Joya,Rancheria,Lagos de Moreno,Jalisco,
 3809,47536,El Tutano,Rancheria,Lagos de Moreno,Jalisco,
@@ -5667,4 +5667,4 @@ id,c_postal,settlement,settlement_type,township,state,city
 5666,49979,El Tepeguaje,Congregacion,Santa Maria del Oro,Jalisco,
 5667,49990,Los Platanos,Colonia,Santa Maria del Oro,Jalisco,
 5668,49994,Zipoco,Poblado comunal,Santa Maria del Oro,Jalisco,
-5669,49994,Las Parotas,Poblado comunal,Santa Maria del Oro,Jalisco,
+5669,49994,Las Parotas,Poblado comunal,Santa Maria del Oro,Jalisco
