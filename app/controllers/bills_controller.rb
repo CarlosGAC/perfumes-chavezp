@@ -34,7 +34,6 @@ class BillsController < ApplicationController
 
     if !@client.blank? and !@perfume.blank?
       if (@perfume.stock - params[:bill][:amount].to_i) >= 0
-        puts "Si entra al mayor a cero"
         @bill.client_id = @client.id
         @bill.perfume_id = @perfume.id
         @bill.total = @perfume.buy_price * @bill.amount
@@ -45,20 +44,20 @@ class BillsController < ApplicationController
             format.html { redirect_to @bill, notice: 'La cuenta se creó satisfactoriamente. Se actualizó el stock' }
             format.json { render :show, status: :created, location: @bill }
           else
-            format.html { render :new, notice: 'La cuenta no pudo ser guardada en la base de datos' }
+            format.html { redirect_to new_bill_url, notice: 'La cuenta no pudo ser guardada en la base de datos' }
             format.json { render json: @bill.errors, status: :unprocessable_entity }
           end
         end
       else
         respond_to do |format|
-          format.html { render :new, notice: 'Se intento vender mas perfumes de los que hay en stock' }
+          format.html { redirect_to new_bill_url, notice: 'Se intentó vender mas perfumes de los que hay en stock' }
           format.json { render json: @bill.errors, status: :unprocessable_entity }
         end
       end
 
     else
       respond_to do |format|
-        format.html { render :new, notice: 'El cliente o el perfume ingresado no es válido'}
+        format.html { redirect_to new_bill_url, notice: 'El cliente o el perfume ingresado no es válido'}
         format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
     end

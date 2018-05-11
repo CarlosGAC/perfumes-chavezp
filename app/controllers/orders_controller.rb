@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render :new, notice: 'El articulo ingresado no es válido'}
+        format.html { redirect_to new_order_datum_order_url, notice: 'El artículo ingresado no es válido'}
         format.json { render json: @order_datum.errors, status: :unprocessable_entity }
       end
     end

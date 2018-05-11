@@ -1,8 +1,3 @@
     
-<%= button_to "Respaldar DB", { :action => "call_dump" }, :method => :post %>
-
-
-<%= form_tag("./call_restore", method: "post") do %>
-  <%= file_field_tag "Archivo"%>
-  <%= submit_tag "Respaldar" %>
-<% end %>
+<%= button_to "Respaldar Base de Datos", { :action => "call_dump" }, :method => :post %>
+<%= button_to "Restaurar Base de Datos", { :action => "call_restore"}, :method => :post %>

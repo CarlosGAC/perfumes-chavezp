@@ -12,20 +12,20 @@
 
 ActiveRecord::Schema.define(version: 20180406194344) do
 
-  create_table "bills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "bills", force: :cascade do |t|
     t.date "bill_date"
-    t.bigint "client_id"
+    t.integer "client_id"
     t.integer "amount"
-    t.float "total", limit: 24
+    t.float "total"
     t.integer "status"
-    t.bigint "perfume_id"
+    t.integer "perfume_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_bills_on_client_id"
     t.index ["perfume_id"], name: "index_bills_on_perfume_id"
   end
 
-  create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "phone_number"
@@ -39,39 +39,39 @@ ActiveRecord::Schema.define(version: 20180406194344) do
     t.string "state"
   end
 
-  create_table "order_data", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "order_data", force: :cascade do |t|
     t.date "order_date"
-    t.bigint "client_id"
+    t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_order_data_on_client_id"
   end
 
-  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "orders", force: :cascade do |t|
     t.integer "amount"
     t.integer "status"
-    t.float "total", limit: 24
-    t.bigint "order_datum_id"
-    t.bigint "perfume_id"
+    t.float "total"
+    t.integer "order_datum_id"
+    t.integer "perfume_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_datum_id"], name: "index_orders_on_order_datum_id"
     t.index ["perfume_id"], name: "index_orders_on_perfume_id"
   end
 
-  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.float "amount", limit: 24
+  create_table "payments", force: :cascade do |t|
+    t.float "amount"
     t.date "payment_date"
-    t.bigint "bill_id"
+    t.integer "bill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bill_id"], name: "index_payments_on_bill_id"
   end
 
-  create_table "perfumes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "perfumes", force: :cascade do |t|
     t.string "name"
-    t.float "buy_price", limit: 24
-    t.float "retail_price", limit: 24
+    t.float "buy_price"
+    t.float "retail_price"
     t.integer "stock"
     t.integer "public_target"
     t.integer "classification"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20180406194344) do
     t.datetime "picture_updated_at"
   end
 
-  create_table "postal_codes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "postal_codes", force: :cascade do |t|
     t.integer "c_postal"
     t.string "settlement"
     t.string "settlement_type"
@@ -95,16 +95,14 @@ ActiveRecord::Schema.define(version: 20180406194344) do
     t.string "city"
   end
 
-  create_table "schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "schedules", force: :cascade do |t|
     t.date "day"
     t.time "hour"
     t.string "place"
-    t.bigint "client_id"
+    t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_schedules_on_client_id"
   end
 
-  add_foreign_key "bills", "perfumes"
-  add_foreign_key "orders", "perfumes"
 end

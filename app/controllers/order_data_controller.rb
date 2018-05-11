@@ -38,13 +38,13 @@ class OrderDataController < ApplicationController
           format.html { redirect_to @order_datum, notice: 'La orden se creó satisfactoriamente' }
           format.json { render :show, status: :created, location: @order_datum }
         else
-          format.html { render :new, notice: 'La orden no pudo ser guardada en la base de datos' }
+          format.html { redirect_to new_order_datum_url, notice: 'La orden no pudo ser guardada en la base de datos' }
           format.json { render json: @order_datum.errors, status: :unprocessable_entity }
         end
       end
     else
       respond_to do |format|
-        format.html { render :new, notice: 'El cliente ingresado no es válido'}
+        format.html { redirect_to new_order_datum_url, notice: 'El cliente ingresado no es válido'}
         format.json { render json: @order_datum.errors, status: :unprocessable_entity }
       end
     end

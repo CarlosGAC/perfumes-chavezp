@@ -5,11 +5,13 @@ class BackupsController < ApplicationController
   
   def call_dump
     %x(bundle exec rake db:dump)
-    redirect_to backups_index_path, notice: 'La cuenta se creó satisfactoriamente. Se actualizó el stock'
+    send_file("#{Rails.root}/db/backups/perfumeschavez.sql")
+    puts "#{Rails.root}/db/backups/perfumeschavez.sql"
+    #redirect_to backups_index_path, notice: 'La cuenta se creó satisfactoriamente. Se actualizó el stock'
   end
   
   def call_restore
-    %x(bundle exec rake db:restore filename=#{params[:Archivo]})
+    %x(bundle exec rake db:restore)
     redirect_to backups_index_path, notice: 'La cuenta se creó satisfactoriamente. Se actualizó el stock'
   end
 end
