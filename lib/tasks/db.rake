@@ -4,7 +4,7 @@ namespace :db do
   task :dump => :environment do
     cmd = nil
     with_config do |user, password, db|
-      cmd = "/usr/local/mysql/bin/mysqldump -u deploy --password='mysql123' perfumes_production > #{Rails.root}/db/backups/perfumeschavez.sql"
+      cmd = "mysqldump -u deploy --password='mysql123' perfumes_production > #{Rails.root}/db/backups/perfumeschavez.sql"
     end
     puts cmd
     exec cmd
@@ -16,7 +16,7 @@ namespace :db do
     cmd = "cd #{Rails.root.join('db', 'backups')}"
     exec cmd
     cmd = nil
-    cmd = "/usr/local/mysql/bin/mysql -u #{ActiveRecord::Base.connection_config[:username]} -p #{ActiveRecord::Base.connection_config[:password]} #{ActiveRecord::Base.connection_config[:database]} < perfumeschavez.sql"
+    cmd = "mysql -u #{ActiveRecord::Base.connection_config[:username]} -p #{ActiveRecord::Base.connection_config[:password]} #{ActiveRecord::Base.connection_config[:database]} < perfumeschavez.sql"
     Rake::Task["db:drop"].invoke
     Rake::Task["db:create"].invoke
     puts cmd
