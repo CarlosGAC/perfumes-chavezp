@@ -1,4 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div class="instruction-box">
+  <div class="ib-title" onclick="toggleShow()">
+    <p>Instrucciones de ayuda</p>
+  </div>
+  <div id="inst_show-more" class="ib-text">
+      <p>Indicaciones para navegar dentro de la sección Clientes:
+        <br>1.- Para añadir un cliente se selecciona el boton "Nuevo Cliente"
+        <br>2.- Para editar la información de un cliente existente se selecciona el botón "Editar" que se encuentra a la derecha del cliente respectivo
+        <br>3.- Cada cliente tiene un botón llamado "Mostrar" el cual redirecciona a una página en la que es posible gestionar los horarios de cobro referentes a ese pedido
+        <br>4.- En la parte superior de la lista se puede realizar una búsqueda de clientes filtrando la información de acuerdo a los campos llenados y selecionando el botón "Buscar"
+        </p>
+      </div>
+    </div>
 <div class="global-container">
   <div class="title">
     <h2>Clientes</h2>
@@ -9,7 +22,7 @@
       <ul>
         <li><%= text_field_tag :name, params[:name], placeholder: "Nombre" %></li>
         <li><%= text_field_tag :address, params[:address], placeholder: "Dirección" %></li>
-        <li><%= text_field_tag :zipcode, params[:zipcode], placeholder: "Codigo Postal" %></li>
+        <li><%= text_field_tag :zipcode, params[:zipcode], placeholder: "Código Postal" %></li>
         <li><%= text_field_tag :colony, params[:colony], placeholder: "Colonia" %></li>
         <li><%= text_field_tag :city, params[:city], placeholder: "Ciudad" %></li>
         <li><%= text_field_tag :state, params[:state], placeholder: "Estado" %></li>
@@ -19,12 +32,12 @@
     <%end%>
   </div>
   <div class="clientes-container">
-    <div class="table-ul-1">
+    <div class="table-ul-1 table-ul-ME">
       <ul>
         <li>Nombre</li>
-        <li>Direccion</li>
-        <li>Numero</li>
-        <li>Numero de telefono</li>
+        <li>Dirección</li>
+        <li>Número</li>
+        <li>Número de teléfono</li>
         <li> </li>
         <li> </li>
         <!-- <li colspan="3"></li> -->
@@ -38,10 +51,8 @@
           <li><%= client.address %></li>
           <li><%= client.external_address_num %></li>
           <li><%= client.phone_number %></li>
-          
-          <li class="less-width"><%= link_to 'Mostrar', client %></li>
-          <li class="less-width"><%= link_to 'Editar', edit_client_path(client) %></li>
-          <!-- <li><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></li> -->
+          <li class="ntb1"><%= link_to 'Mostrar', client %></li>
+          <li class="ntb2"><%= link_to 'Editar', edit_client_path(client) %></li>
         </ul>
       <% end %>
     </div>

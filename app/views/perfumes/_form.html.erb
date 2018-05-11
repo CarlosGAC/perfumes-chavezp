@@ -32,11 +32,11 @@
       <li><%= f.number_field :stock, step: 1 %></li>
     </ul>
     <ul>
-      <li><%= f.label :public_target, 'Publico' %></li>
+      <li><%= f.label :public_target, 'Público' %></li>
       <li><%= f.select :public_target, Perfume.public_targets.keys %></li>
     </ul>
     <ul>
-      <li><%= f.label :category, 'Categoria' %></li>
+      <li><%= f.label :category, 'Categoría' %></li>
       <li><%= f.select :category, Perfume.categories.keys %></li>
     </ul>
     <ul>
@@ -44,7 +44,7 @@
       <li><%= f.select :classification, Perfume.classifications.keys %></li>
     </ul>
     <ul>
-      <li><%= f.label :presentation %></li>
+      <li><%= f.label :presentation,'Presentación' %></li>
       <li><%= f.number_field :presentation %></li>
     </ul>
     <ul>

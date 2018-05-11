@@ -1,3 +1,17 @@
+<div class="instruction-box">
+  <div class="ib-title" onclick="toggleShow()">
+    <p>Instrucciones de ayuda</p>
+  </div>
+  <div id="inst_show-more" class="ib-text">
+      <p>Pasos para modificar correctamente un pedido:
+      <br>1.- Modificar la fecha del pedido, seleccionando los datos de las listas desplegables
+      <br>2.- Ingresar el nombre del cliente que realiza el pedido
+      <br>3.- Seleccionar el botón agregar
+      <br><br>
+      *Nota: Revisar ortografía y demás validaciones requeridas para llenar correctamente un formulario</p>
+
+  </div>
+</div>
 <div class="global-container">
   <div class="title t-extra">
     <h2>Editar Pedido</h2>
@@ -7,7 +21,7 @@
   <div class="new-container">
     <%= render 'form', order_datum: @order_datum %>
     <div class="show-links">
-      
+
     </div>
   </div>
 </div>

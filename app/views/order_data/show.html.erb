@@ -1,4 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div class="instruction-box">
+  <div class="ib-title" onclick="toggleShow()">
+    <p>Instrucciones de ayuda</p>
+  </div>
+  <div id="inst_show-more" class="ib-text">
+      <p>Indicaciones para navegar en la página:
+        <br>1.- Para añadir perfumes al pedido se selecciona el boton "Nuevo Artículo"
+        <br>2.- El botón "Editar" permite modificar la fecha y el nombre del cliente del pedido
+        <br>3.- El botón "Artículos" muestra la lista de perfumes añadidos al pedido con sus datos respectivos
+        <br>4.- El botón "Atrás" regresa a la sección Pedidos
+        </p>
+      </div>
+    </div>
 <div class="global-container">
   <div class="show-container">
     <ul>
@@ -13,8 +26,8 @@
 
   </div>
   <div class="show-links get-down">
-    <li><%= link_to 'Nuevo Articulo', new_order_datum_order_path(@order_datum) %></li>
-    <li><%= link_to 'Articulos', order_datum_orders_path(@order_datum) %></li>
+    <li><%= link_to 'Nuevo Artículo', new_order_datum_order_path(@order_datum) %></li>
+    <li><%= link_to 'Artículos', order_datum_orders_path(@order_datum) %></li>
     <li><%= link_to 'Editar', edit_order_datum_path(@order_datum) %></li>
     <li><%= link_to 'Atrás', order_data_path %></li>
   </div>

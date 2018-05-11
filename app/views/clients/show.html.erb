@@ -1,4 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div class="instruction-box">
+  <div class="ib-title" onclick="toggleShow()">
+    <p>Instrucciones de ayuda</p>
+  </div>
+  <div id="inst_show-more" class="ib-text">
+      <p>Indicaciones para navegar en la página:
+        <br>1.- Para añadir horarios de cobro al cliente se selecciona el boton "Nuevo Horario"
+        <br>2.- El botón "Editar" permite modificar la información referente al cliente
+        <br>3.- El botón "Horarios" muestra la lista de horarios de cobro añadidos al cliente con sus datos respectivos
+        <br>4.- El botón "Atrás" regresa a la sección Clientes
+        </p>
+      </div>
+    </div>
 <div class="global-container">
   <div class="show-container">
     <ul>
@@ -10,27 +23,27 @@
       <li><strong>Dirección</strong></li>
       <li><%= @client.address %></li>
     </ul>
-    
+
     <ul>
       <li><strong>Número exterior</strong></li>
       <li><%= @client.external_address_num %></li>
     </ul>
-    
+
     <ul>
       <li><strong>Número interior</strong></li>
       <li><%= @client.internal_address_num %></li>
     </ul>
-    
+
     <ul>
-      <li><strong>Codigo Postal</strong></li>
+      <li><strong>Código Postal</strong></li>
       <li><%= @client.zipcode %></li>
     </ul>
-    
+
     <ul>
       <li><strong>Ciudad</strong></li>
       <li><%= @client.city %></li>
     </ul>
-    
+
     <ul>
       <li><strong>Estado</strong></li>
       <li><%= @client.state %></li>

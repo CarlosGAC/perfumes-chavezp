@@ -1,6 +1,14 @@
 @import 'forms.styl'
 @import '../theme/color.styl'
 
+
+
+body
+  color: $base_black;
+  background-color: $base_white;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+
 .mod_a
   font-size: 0.7em;
 
@@ -9,13 +17,6 @@
 
 .chiquitititio
   width: 140px;
-
-body
-  color: $base_black;
-  background-color: $base_white;
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
-  min-width: 900px; //600
 
 h1
   font-size 3em;
@@ -36,15 +37,20 @@ p
 
 .title
   display: flex;
+  
   align-items: center;
   flex-direction: row;
   justify-content: flex-start;
-
+  flex-wrap:wrap;
+  
   margin: 0 0 10px 5px;
 
+.title h2
+  margin-right: 100px;
+
 .title a
-  margin-left: 100px;
   text-align: center;
+  vertical-align: baseline;
   //width: 170px;
 
 .pac-a
@@ -185,26 +191,30 @@ p
   background-image: url(Not_an_image.png); //PerfumeNo1.jpg
   background-size: cover; // contain
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 10px $base_black;
+  
+  position: absolute;
   height: 200px;
   width: 200px;
 
-// .producto-img img
-//   //background-color: tomato;
-//   box-shadow: 2px 2px 10px $base_black;
-//   height: 200px;
-//   width: 200px;
-
-.producto-info
+.prod-margin
+  height: 230px;
   width: 200px;
 
-.button_show-more
-  color: tomato;
-  background-color: #00000000;
-  padding: 0;
-  border-bottom-style: solid;
-  border-radius: 0;
-  border-width: 1px;
+.producto-img img
+  box-shadow: 2px 2px 10px $base_black;
+  max-height: 200px;
+  max-width: 200px;
+
+.producto-right, .producto-left
+  width: 200px;
+
+// .button_show-more
+//   color: tomato;
+//   background-color: #00000000;
+//   padding: 0;
+//   border-bottom-style: solid;
+//   border-radius: 0;
+//   border-width: 1px;
 
 // #info_show-more
 //   display: none;
@@ -300,22 +310,28 @@ p
 
   padding-left: 0;
 
-.clientes-container li, .cuentas-container li, .pedidos-d-container li,.pedidos-container li, .schedules-container li, .cobros-container li
+.clientes-container li, .cuentas-container li, .pedidos-d-container li, .pedidos-container li, .schedules-container li, .cobros-container li
   font-weight: 400;
   margin-right: 5px;
   width: 150px;
 
-.ntb1
-  max-width: 120px;
 
-.ntb2
-  max-width: 100px;
+// .ntb1
+//   max-width: 120px;
+// 
+// .ntb2
+//   max-width: 100px;
+  
+.pls
+  min-width: 80px;
 
 .table-ul-1 li
+  
   font-weight: 600;
 
 .table-ul-2 ul
   height: 50px;
+  // margin-bottom: 10px;
 
 // .table-ul-1 li, .table-ul-2 li
 //   min-width: 100px;
@@ -420,6 +436,31 @@ p
   padding: 10px;
   
 .ib-text
-  display: block;
+  display: none; //block
   width: 100%;
   -webkit-transition: all 0.7s ease;
+  
+  
+// Checa esto
+@media only screen and (min-width: 900px)
+  body
+    min-width: 900px; //600
+
+// Para resoluciones moviles
+@media only screen and (max-width: 600px) 
+  *
+    font-size: 18px;
+  #header
+    position: fixed;
+  .contenedor
+    padding-top: 240px;
+  .table-ul-2 ul
+    min-height: 70px;  
+  .table-ul-1 li, .table-ul-2 li
+    min-width: 120px;
+    display: flex;
+    flex-wrap: wrap;
+  .prod-margin
+    height: 240px;
+    width: 200px;
+  
