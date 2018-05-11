@@ -4,7 +4,7 @@ namespace :db do
   task :dump => :environment do
     cmd = nil
     with_config do |user, password, db|
-      cmd = "mysqldump -u deploy --password='mysql123' perfumes_production > #{Rails.root}/db/backups/perfumeschavez.sql"
+      cmd = "mysqldump -u root --password='mysql123' perfumes_production > #{Rails.root}/db/backups/perfumeschavez.sql"
     end
     puts cmd
     exec cmd
