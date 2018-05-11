@@ -23,6 +23,16 @@ namespace :db do
     exec cmd
   end
   
+  desc "Imports csv file with the zipcodes"
+  task :importcp => :environment do
+    postalcodes = []
+    CSV.foreach("#{Rails.root}/app/assets/Jalisco.csv", headers: true, skip_blanks: true, encoding: "ISO8859-1:utf-8") do |row|
+      rowh = row.to_h
+      postalcodes << PostalCode.new(rowh)
+    end
+    PostalCode.import(postalcodes)
+  end
+  
   private
 
   def with_config
