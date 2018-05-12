@@ -1,0 +1,38 @@
+<div class="global-container">
+  <div class="title t-extra">
+    <h2>Iniciar sesión</h2>
+  </div>
+  <div class="login-container">
+    <div class="form-container">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <ul>
+          <li><%= f.label :username, "Usuario" %></li>
+          <li><%= f.text_field :username, autofocus: true, autocomplete: "<username></username>" %></li>
+        </ul>
+
+        <ul>
+          <li><%= f.label :password %></li>
+          <li><%= f.password_field :password, autocomplete: "off" %></li>
+        </ul>
+
+        <% if devise_mapping.rememberable? -%>
+          <ul>
+            <li><%= f.check_box :remember_me %></li>
+            <li><%= f.label :remember_me %></li>
+          </ul>
+        <% end -%>
+
+        <ul>
+          <li class="li-submit"><%= f.submit "Ingresar" %></li>
+        </ul>
+      <% end %>
+      <% if User.all.count < 1 %>
+      <ul> 
+        <li><%= render "devise/shared/links" %></li>
+      </ul>
+      <%end%>
+    </div>
+  </div>
+</div>
+
+

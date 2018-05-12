@@ -1,3 +1,11 @@
-    
-<%= button_to "Respaldar Base de Datos", { :action => "call_dump" }, :method => :post %>
-<%= button_to "Restaurar Base de Datos", { :action => "call_restore"}, :method => :post %>
+<div class="global-container">
+  <div class="title t-extra">
+    <h2>Respaldar y Restaurar</h2>
+  </div>
+  <div class="backup-container">
+    <ul>
+      <li><%= button_to "Respaldar Base de Datos", { :action => "call_dump" }, :method => :post %></li>
+      <li><%= button_to "Restaurar Base de Datos", { :action => "call_restore"}, :method => :post %></li>
+    </ul>
+  </div>
+</div>    

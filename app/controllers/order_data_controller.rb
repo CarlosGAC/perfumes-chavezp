@@ -1,7 +1,8 @@
 class OrderDataController < ApplicationController
   before_action :set_order_datum, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   autocomplete :client, :name
-
+  
   def alldata
     
   end

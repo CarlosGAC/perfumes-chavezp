@@ -1,6 +1,7 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /bill/today
   def today
     @today_date = Time.now.strftime("%Y-%m-%d")

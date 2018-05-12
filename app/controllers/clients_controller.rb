@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   autocomplete :postal_code, :c_postal, additional_data: [:settlement, :township, :state, :city]
   # GET /clients
   # GET /clients.json

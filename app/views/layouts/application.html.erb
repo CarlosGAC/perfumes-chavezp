@@ -10,17 +10,21 @@
   <body>
     <section id="header">
       <div class="global-logo">
-        <!-- <%= link_to ' ', {controller: "welcome"}, id: "logo" %> -->
         <%= link_to(image_tag("Logo2chico.png", id: "logo", :title => "Home"), "/") %>
-        <!-- ,class: "index_logo" -->
       </div>
       <div class="menu">
-        <%= link_to "Perfumes", {controller: "perfumes"}%>
-        <%= link_to "Pedidos de Clientes", {controller: "order_data"}%>
-        <%= link_to "Clientes", {controller: "clients"}%>
-        <%= link_to "Cuentas", {controller: "bills"}%>
-        <%= link_to "Cobros de hoy", {action: "today", controller: "schedules"}%>
-        <%= link_to "Respaldos", {action: "index", controller: "backups"}%>
+        <%= link_to "Perfumes", perfumes_path %>
+        <%= link_to "Pedidos de Clientes", order_data_path %>
+        <%= link_to "Clientes", clients_path %>
+        <%= link_to "Cuentas", bills_path %>
+        <%= link_to "Cobros de hoy", schedules_today_path %>
+        <%= link_to "Respaldos", backups_index_path %>
+        <!--Changes the link between new and destroy sessions-->
+        <% if user_signed_in? %>
+          <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Iniciar sesión", new_user_session_path %>
+        <%end%>
       </div>
       
     </section>

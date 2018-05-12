@@ -1,6 +1,7 @@
 class PerfumesController < ApplicationController
   before_action :set_perfume, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /perfumes
   # GET /perfumes.json
   def index

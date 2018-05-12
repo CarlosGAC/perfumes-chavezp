@@ -52,7 +52,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.i18n.available_locales = [:es]
-
+  config.i18n.available_locales = [:es, :en]
+  
   Paperclip.options[:command_path] = 'C:\RailsInstaller\DevKit\bin'
 end
