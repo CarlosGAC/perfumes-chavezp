@@ -10,5 +10,6 @@ class Client < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }, format: { with: /\A[^ ][áéíóúñA-Za-z .]+[^0-9]\z/ }
   validates :address, length: { maximum: 50 }, format: { with: /\A[^ ][áéíóúñA-Za-z .]+[^0-9]\z/ }
   validates :phone_number, format: { with: /\A([0-9]{3})?[-.●]{1}([0-9]{3})[-.●]{1}([0-9]{4})\z/, message: " debe llevar el formato 000-000-0000" }, length: { is: 12 }
+  validates :zipcode, format: { with: /\A[+]?[0-9]+\z/ }, length: { maximum: 5 }
   # TODO: Revisar las redirecciones y botones de Client
 end

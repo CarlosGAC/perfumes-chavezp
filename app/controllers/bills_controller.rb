@@ -69,17 +69,31 @@ class BillsController < ApplicationController
   def update
     @client = Client.where(name: params[:bill][:client_name]).first
     @perfume = Perfume.where(name: params[:bill][:perfume_name], classification: params[:bill][:perfume_classification]).first
-
+    @old_perfume = Perfume.where(id: @bill.perfume_id)
+    puts @old_perfume 
     if !@client.blank? and !@perfume.blank?
       if (@perfume.stock - params[:bill][:amount].to_i) >= 0
         @bill.client_id = @client.id
         @bill.perfume_id = @perfume.id
         @bill.total = @perfume.buy_price * @bill.amount
         @bill.status = 0
-        @perfume.stock = @perfume.stock - params[:bill][:amount].to_i
+        
+        if(@perfume.id != @old_perfume.first.id)
+          @old_perfume.first.stock = @old_perfume.first.stock + @bill.amount
+          @perfume.stock = @perfume.stock - params[:bill][:amount].to_i
+          @old_perfume.first.save
+        else
+          new_amount = params[:bill][:amount].to_i
+          if @bill.amount > new_amount
+            @perfume.stock = @perfume.stock + (@bill.amount - new_amount)
+          elsif @bill.amount < new_amount
+            @perfume.stock = @perfume.stock - (new_amount - @bill.amount)
+          end
+        end
+        
         respond_to do |format|
           if @bill.update(bill_params) and @perfume.save
-            format.html { redirect_to @bill, notice: 'La cuenta se creó satisfactoriamente. Se actualizó el stock' }
+            format.html { redirect_to @bill, notice: 'La cuenta se actualizó satisfactoriamente. Se actualizó el stock' }
             format.json { render :show, status: :created, location: @bill }
           else
             format.html { render :new, notice: 'La cuenta no pudo ser guardada en la base de datos' }
@@ -88,14 +102,14 @@ class BillsController < ApplicationController
         end
       else
         respond_to do |format|
-          format.html { render :new, notice: 'Se intento vender mas perfumes de los que hay en stock' }
+          format.html { render :edit, notice: 'Se intento vender mas perfumes de los que hay en stock' }
           format.json { render json: @bill.errors, status: :unprocessable_entity }
         end
       end
 
     else
       respond_to do |format|
-        format.html { render :new, notice: 'El cliente o el perfume ingresado no es válido'}
+        format.html { render :edit, notice: 'El cliente o el perfume ingresado no es válido'}
         format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
     end
