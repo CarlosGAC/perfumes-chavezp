@@ -44,6 +44,8 @@
         <div class="producto-img">
           <% if perfume.picture.exists? %>
           <%= image_tag perfume.picture.url(:thumb) %>
+          <% else %>
+          <%= image_tag("Not_an_image.png", id: "perfume-img", :title => "Home") %>
           <%end%>
         </div>
         <div class="prod-margin">
