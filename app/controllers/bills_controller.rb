@@ -7,7 +7,11 @@ class BillsController < ApplicationController
   # GET /bill
   # GET /bill.json
   def index
-    @bills = Bill.all.order(bill_date: :desc)
+    if params[:client_name] or params[:perfume_name] or params[:status]
+      @bills = Bill.joins(:client).joins(:perfume).where('clients.name LIKE ? AND perfumes.name LIKE ? AND status LIKE ?', "%#{params[:client_name]}%", "%#{params[:perfume_name]}%", "%#{params[:status]}")
+    else
+      @bills = Bill.all.order(bill_date: :desc)
+    end
   end
 
   # GET /bill/1

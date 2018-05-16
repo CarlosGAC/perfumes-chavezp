@@ -16,6 +16,16 @@
     <h2>Cuentas</h2>
     <%= link_to 'Nueva Cuenta', new_bill_path %>
   </div>
+  <div class="search-container">
+    <%= form_tag(bills_path, method: :get) do %>
+      <ul>
+        <li><%= text_field_tag :client_name, params[:client_name], placeholder: "Nombre del Cliente" %></li>
+        <li><%= text_field_tag :perfume_name, params[:perfume_name], placeholder: "Nombre del Perfume", step: 0.5 %></li>
+        <li><%= select_tag :status, options_for_select(Bill.statuses), include_blank: true %></li>
+        <li><%= submit_tag "Buscar"%></li>
+      </ul>
+    <%end%>
+  </div>
   <div class="cuentas-container">
     <div class="table-ul-1 table-ul-ME">
       <ul>
