@@ -8,8 +8,8 @@ class Client < ApplicationRecord
   accepts_nested_attributes_for :bills
 
   validates :name, presence: true, length: { maximum: 50 }, format: { with: /\A[^ ][áéíóúñA-Za-z .]+[^0-9]\z/ }
-  validates :external_address_num, length: {maximum: 4}, format: { with: /\A[0-9]+\z/ }
-  validates :internal_address_num, length: {maximum: 4}, format: { with: /\A[0-9]+\z/}
+  validates :external_address_num, presence: false, length: {maximum: 4}, format: { with: /\A[0-9]*\z/ }
+  validates :internal_address_num, presence: false, length: {maximum: 4}, format: { with: /\A[0-9]*\z/}
   validates :address, length: { maximum: 50 }, format: { with: /\A[^ ][áéíóúñA-Za-z .]+\z/ }
   validates :phone_number, format: { with: /\A([0-9]{3})?[-.●]{1}([0-9]{3})[-.●]{1}([0-9]{4})\z/, message: " debe llevar el formato 000-000-0000" }, length: { is: 12 }
   validates :zipcode, format: { with: /\A[+]?[0-9]+\z/ }, length: { maximum: 5 }
