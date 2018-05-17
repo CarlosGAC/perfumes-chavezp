@@ -63,6 +63,7 @@ class OrdersController < ApplicationController
     if !@perfume.blank?
       @order.order_datum_id = @order_datum.first.id
       @order.perfume_id = @perfume.id
+      @order.total = @perfume.retail_price * @order.amount
       respond_to do |format|
         if @order.update(order_params)
           format.html { redirect_to order_datum_orders_path, notice: 'El articulo fue creado satisfactoriamente' }
