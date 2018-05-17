@@ -30,9 +30,9 @@ es:
               invalid: " solo acepta letras y los símbolos punto y gato"
               presence: " no puede quedar vacío"
             buy_price:
-              invalid: " solo acepta numeros enteros o decimales"
+              invalid: " solo acepta números enteros o decimales"
             retail_price:
-              invalid: " solo acepta numeros enteros o decimales"
+              invalid: " solo acepta números enteros o decimales"
             picture:
               invalid: " tiene un formato que no es válido"
         client:
