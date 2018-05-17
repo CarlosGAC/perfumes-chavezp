@@ -7,13 +7,19 @@ es:
         buy_price: "Precio de compra"
         retail_price: "Precio de venta"
         stock: "Existencias"
-        presentation: "Presentacion"
+        presentation: "Presentación"
         picture: "La imagen"
 
       client:
-        phone_number: "El numero de telefono"
+        phone_number: "El número de teléfono"
         name: "El nombre del cliente"
-        address: "La direccion del cliente"
+        address: "La dirección del cliente"
+        external_address_num: "El numero exterior"
+        internal_address_num: "El numero interior"
+        colony: "La colonia"
+        state: "El estado"
+        city: "La ciudad"
+        zipcode: "El código postal"
     errors:
       models:
         perfume:
@@ -28,7 +34,7 @@ es:
             retail_price:
               invalid: " solo acepta numeros enteros o decimales"
             picture:
-              invalid: " tiene un formato que no es valido"
+              invalid: " tiene un formato que no es válido"
         client:
           attributes:
             phone_number:
@@ -38,6 +44,16 @@ es:
               invalid: " solo acepta letras"
             name:
               presence: " no puede quedar vacío"
+              invalid: " solo acepta letras"
+            external_address_num:
+              invalid: " solo acepta dígitos"
+            internal_address_num:
+              invalid: " solo acepta dígitos"
+            colony:
+              invalid: " solo acepta letras y dígitos"
+            city:
+              invalid: " solo acepta letras"
+            state:
               invalid: " solo acepta letras"
 
 
