@@ -7,7 +7,7 @@ class PerfumesController < ApplicationController
   def index
     # @perfumes = Perfume.all
     if params[:name]
-      @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}", "%#{params[:retail_price]}", "%#{params[:stock]}", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+      @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}", "%#{params[:retail_price]}", "#{params[:stock]}", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
     else
       @perfumes = Perfume.all
     end
