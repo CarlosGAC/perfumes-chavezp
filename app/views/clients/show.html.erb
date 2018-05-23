@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <div class="instruction-box">
   <div class="ib-title" onclick="toggleShow()">
     <p>Instrucciones de ayuda</p>
@@ -40,6 +40,11 @@
     </ul>
 
     <ul>
+      <li><strong>Colonia</strong></li>
+      <li><%= @client.colony %></li>
+    </ul>
+
+    <ul>
       <li><strong>Ciudad</strong></li>
       <li><%= @client.city %></li>
     </ul>
@@ -53,6 +58,7 @@
       <li><strong>Número de teléfono</strong></li>
       <li><%= @client.phone_number %></li>
     </ul>
+    
   </div>
   <div class="show-links get-down">
     <li><%= link_to 'Nuevo Horario', new_client_schedule_path(@client) %></li>

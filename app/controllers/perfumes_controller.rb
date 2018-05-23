@@ -7,11 +7,34 @@ class PerfumesController < ApplicationController
   def index
     # @perfumes = Perfume.all
     if params[:name] or params[:buy_price] or params[:retail_price] or params[:stock]
-      puts "Hola #{params[:stock].blank?}"
-      if !params[:stock].blank?
-        @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}", "%#{params[:retail_price]}", "#{params[:stock]}", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+      if params[:stock].blank?
+        if params[:buy_price].blank?
+          if params[:retail_price].blank?
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}%", "%#{params[:retail_price]}%", "%#{params[:stock]}%", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          else
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}%", "#{params[:retail_price]}", "%#{params[:stock]}%", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          end
+        else
+          if !params[:retail_price].blank?
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "#{params[:buy_price]}", "%#{params[:retail_price]}%", "%#{params[:stock]}%", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          else
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "#{params[:buy_price]}", "#{params[:retail_price]}", "%#{params[:stock]}%", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          end
+        end
       else
-        @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}", "%#{params[:retail_price]}", "%#{params[:stock]}%", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+        if params[:buy_price].blank?
+          if params[:retail_price].blank?
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}%", "%#{params[:retail_price]}%", "#{params[:stock]}", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          else
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "%#{params[:buy_price]}%", "#{params[:retail_price]}", "#{params[:stock]}", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          end
+        else
+          if params[:retail_price].blank?
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "#{params[:buy_price]}", "%#{params[:retail_price]}%", "#{params[:stock]}", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          else
+            @perfumes = Perfume.where('name LIKE ? AND buy_price LIKE ? AND retail_price LIKE ? AND stock LIKE ? AND public_target LIKE ? AND classification LIKE ? AND category LIKE ? AND presentation like ? AND visibility LIKE ?', "%#{params[:name]}%", "#{params[:buy_price]}", "#{params[:retail_price]}", "#{params[:stock]}", "%#{params[:public_target]}%", "%#{params[:classification]}%", "%#{params[:category]}%", "%#{params[:presentation]}%", "%#{params[:visibility]}%")
+          end
+        end
       end
     else
       @perfumes = Perfume.all

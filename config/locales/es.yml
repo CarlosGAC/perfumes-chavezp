@@ -9,6 +9,7 @@ es:
         stock: "Existencias"
         presentation: "Presentación"
         picture: "La imagen"
+        picture_content_type: "El contenido de la imagen"
 
       client:
         phone_number: "El número de teléfono"
@@ -30,11 +31,13 @@ es:
               invalid: " solo acepta letras y los símbolos punto y gato"
               presence: " no puede quedar vacío"
             buy_price:
-              invalid: " solo acepta números enteros o decimales"
+              invalid: " solo acepta números enteros o decimales positivos"
             retail_price:
-              invalid: " solo acepta números enteros o decimales"
+              invalid: " solo acepta números enteros o decimales positivos"
             picture:
               invalid: " tiene un formato que no es válido"
+            picture_content_type:
+              invalid: " no es válido"
         client:
           attributes:
             phone_number:

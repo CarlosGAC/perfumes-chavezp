@@ -31,6 +31,10 @@
     </section>
 
     <div class="contenedor">
+      <%= content_tag(:p, flash[:error], :id => "notice") if flash[:error] %>
+      <%= content_tag(:p, flash[:notice], :id => "notice") if flash[:notice] %>
+      <%= content_tag(:p, flash[:alert], :id => "notice") if flash[:alert] %>
+      <%= content_tag(:p) if !flash[:error] and !flash[:notice] and !flash[:alert] and !current_page?(root_url) %>
       <%= yield %>
     </div>
   </body>
