@@ -7,9 +7,9 @@ class ClientsController < ApplicationController
   def index
     if params[:name] or params[:address] or params[:phone_number] or params[:external_address_num] or params[:zipcode] or params[:colony] or params[:city] or params[:state]
       @clients = Client.where('name LIKE ? AND address LIKE ? AND phone_number LIKE ? AND zipcode LIKE ? AND colony LIKE ? AND city LIKE ? and state LIKE ?',
-         "%#{params[:name]}%", "%#{params[:address]}%", "%#{params[:phone_number]}%", "%#{params[:zipcode]}%", "%#{params[:colony]}%", "%#{params[:city]}%", "%#{params[:state]}%")
+         "%#{params[:name]}%", "%#{params[:address]}%", "%#{params[:phone_number]}%", "%#{params[:zipcode]}%", "%#{params[:colony]}%", "%#{params[:city]}%", "%#{params[:state]}%").order(name: :desc)
     else
-      @clients = Client.all
+      @clients = Client.all.order(name: :desc)
     end
   end
 

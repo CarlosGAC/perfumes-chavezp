@@ -5,7 +5,7 @@
   <div class="backup-container">
     <ul>
       <li><%= button_to "Respaldar Base de Datos", { :action => "call_dump" }, :method => :post %></li>
-      <li><%= button_to "Restaurar Base de Datos", { :action => "call_restore"}, :method => :post %></li>
+      <li><%= button_to "Restaurar Base de Datos", { :action => "call_restore"}, :method => :post, data: {confirm: "¿Está seguro de que desea restaurar?"} %></li>
     </ul>
   </div>
 </div>    
