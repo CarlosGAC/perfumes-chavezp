@@ -1,37 +1,30 @@
 class OrderDataController < ApplicationController
   before_action :set_order_datum, only: [:show, :edit, :update, :destroy]
+    # States that you need to be authenticated to access this controller
   before_action :authenticate_user!
+    # Creates the autocomplete controller methods for the client's name
   autocomplete :client, :name
   
-  def alldata
-    
-  end
-
-  # GET /order_data
-  # GET /order_data.json
   def index
     @order_data = OrderDatum.all.order(order_date: :desc)
   end
 
-  # GET /order_data/1
-  # GET /order_data/1.json
   def show
   end
 
-  # GET /order_data/new
   def new
     @order_datum = OrderDatum.new
   end
 
-  # GET /order_data/1/edit
   def edit
   end
 
-  # POST /order_data
-  # POST /order_data.json
   def create
+    # Gets the client with the given name
     @client = Client.where(name: params[:order_datum][:client_name]).first
     @order_datum = OrderDatum.new(order_datum_params)
+    # If the client exists, updates the relationship
+    # else, renders the form again and shows an error
     if !@client.blank?
       @order_datum.client_id = @client.id
       respond_to do |format|
@@ -51,11 +44,12 @@ class OrderDataController < ApplicationController
     end
   end
 
-  # PATCH/PUT /order_data/1
-  # PATCH/PUT /order_data/1.json
   def update
+    # Gets the client with the given name
     @client = Client.where(name: params[:order_datum][:client_name]).first
     if !@client.blank?
+      # If the client exists, updates the relationship
+      # else, renders the form again and shows an error
       @order_datum.client_id = @client.id
       respond_to do |format|
         if @order_datum.update(order_datum_params)
@@ -74,24 +68,12 @@ class OrderDataController < ApplicationController
     end
   end
 
-  # DELETE /order_data/1
-  # DELETE /order_data/1.json
-  def destroy
-    @order_datum.destroy
-    respond_to do |format|
-      format.html { redirect_to order_data_url, notice: 'Order datum was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
   
-  # Use callbacks to share common setup or constraints between actions.
   def set_order_datum
     @order_datum = OrderDatum.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def order_datum_params
     params.require(:order_datum).permit(:order_date)
   end

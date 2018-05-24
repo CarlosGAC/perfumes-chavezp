@@ -11,16 +11,17 @@
     </div>
   <% end %>
   <div class="form-container">
-  <div class="field">
-    <%= form.label :payment_date, "Fecha" %>
-    <%= form.date_select :payment_date, id: :payment_date %>
-  </div>
+    <div class="field">
+      <%= form.label :payment_date, "Fecha" %>
+      <%= form.date_select :payment_date, id: :payment_date %>
+    </div>
 
-  <div class="field">
-    <%= form.label :amount, "Monto" %>
-    <%= form.number_field :amount, id: :payment_amount %>
+    <div class="field">
+      <%= form.label :amount, "Monto" %>
+      <%= form.number_field :amount, id: :payment_amount %>
+    </div>
+    <ul>
+      <li class="li-submit"><%= form.submit "Agregar"%></li>
+    </ul>
   </div>
-  <ul>
-    <li class="li-submit"><%= form.submit "Agregar"%></li>
-  </ul>
 <% end %>

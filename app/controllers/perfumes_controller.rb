@@ -1,11 +1,9 @@
 class PerfumesController < ApplicationController
-  before_action :set_perfume, only: [:show, :edit, :update, :destroy]
+  before_action :set_perfume, only: [:show, :edit, :update]
+    # States that you need to be authenticated to access this controller
   before_action :authenticate_user!
   
-  # GET /perfumes
-  # GET /perfumes.json
   def index
-    # @perfumes = Perfume.all
     if params[:name] or params[:buy_price] or params[:retail_price] or params[:stock]
       if params[:stock].blank?
         if params[:buy_price].blank?
@@ -41,22 +39,16 @@ class PerfumesController < ApplicationController
     end
   end
 
-  # GET /perfumes/1
-  # GET /perfumes/1.json
   def show
   end
 
-  # GET /perfumes/new
   def new
     @perfume = Perfume.new
   end
 
-  # GET /perfumes/1/edit
   def edit
   end
 
-  # POST /perfumes
-  # POST /perfumes.json
   def create
     @perfume = Perfume.new(perfume_params)
 
@@ -71,8 +63,6 @@ class PerfumesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /perfumes/1
-  # PATCH/PUT /perfumes/1.json
   def update
     respond_to do |format|
       if @perfume.update(perfume_params)
@@ -85,8 +75,6 @@ class PerfumesController < ApplicationController
     end
   end
 
-  # DELETE /perfumes/1
-  # DELETE /perfumes/1.json
   def destroy
     @perfume.destroy
     respond_to do |format|
@@ -96,12 +84,11 @@ class PerfumesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_perfume
       @perfume = Perfume.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def perfume_params
       params.require(:perfume).permit(:name, :buy_price, :retail_price, :stock, :public_target, :classification, :category, :presentation, :visibility, :picture)
     end

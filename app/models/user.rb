@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true
   
+  # Overrides two methods to state that saving an email field it's not necessary
+  # to save an user
   def email_required?
     false
   end

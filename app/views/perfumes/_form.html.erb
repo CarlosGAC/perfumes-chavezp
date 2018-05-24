@@ -1,4 +1,4 @@
-  <%= form_for(perfume) do |f| %>
+<%= form_for(perfume) do |f| %>
   <% if perfume.errors.any? %>
   <div id="error_explanation">
     <h3><%= pluralize(perfume.errors.count, "errores") %> han evitado que se guardara el perfume:</h3>
@@ -11,7 +11,6 @@
   </div>
   <% end %>
   <div class="form-container">
-
     <ul>
       <li><%= f.label :name, 'Nombre'%></li>
       <li><%= f.text_field :name %></li>
@@ -31,37 +30,42 @@
       <li><%= f.label :stock %></li>
       <li><%= f.number_field :stock, step: 1 %></li>
     </ul>
+    
     <ul>
       <li><%= f.label :public_target, 'Público' %></li>
       <li><%= f.select :public_target, Perfume.public_targets.keys %></li>
     </ul>
+    
     <ul>
       <li><%= f.label :category, 'Categoría' %></li>
       <li><%= f.select :category, Perfume.categories.keys %></li>
     </ul>
+    
     <ul>
       <li><%= f.label :classification, 'Clasificación' %></li>
       <li><%= f.select :classification, Perfume.classifications.keys %></li>
     </ul>
+    
     <ul>
       <li><%= f.label :presentation,'Presentación' %></li>
       <li><%= f.number_field :presentation %></li>
     </ul>
+    
     <ul>
       <li><%= f.label :visibility, 'Visibilidad' %></li>
       <li><%= f.select :visibility, Perfume.visibilities.keys %></li>
     </ul>
+    
     <ul>
       <li><%= f.label :picture, 'Imagen' %></li>
       <li><%= f.file_field :picture %></li>
     </ul>
 
-
-
-
     <ul>
       <li class="li-submit"><%= f.submit "Agregar" %></li>
     </ul>
-    <% end %>
-
+    
   </div>
+<% end %>
+
+

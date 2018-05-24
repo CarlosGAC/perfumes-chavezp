@@ -1,17 +1,16 @@
-
 <div class="instruction-box">
   <div class="ib-title" onclick="toggleShow()">
     <p>Instrucciones de ayuda</p>
   </div>
   <div id="inst_show-more" class="ib-text">
-      <p>Indicaciones para navegar dentro de la sección Clientes:
-        <br>1.- Para añadir un cliente se selecciona el boton "Nuevo Cliente"
-        <br>2.- Para editar la información de un cliente existente se selecciona el botón "Editar" que se encuentra a la derecha del cliente respectivo
-        <br>3.- Cada cliente tiene un botón llamado "Mostrar" el cual redirecciona a una página en la que es posible gestionar los horarios de cobro referentes a ese pedido
-        <br>4.- En la parte superior de la lista se puede realizar una búsqueda de clientes filtrando la información de acuerdo a los campos llenados y selecionando el botón "Buscar"
-        </p>
-      </div>
-    </div>
+    <p>Indicaciones para navegar dentro de la sección Clientes:
+      <br>1.- Para añadir un cliente se selecciona el boton "Nuevo Cliente"
+      <br>2.- Para editar la información de un cliente existente se selecciona el botón "Editar" que se encuentra a la derecha del cliente respectivo
+      <br>3.- Cada cliente tiene un botón llamado "Mostrar" el cual redirecciona a una página en la que es posible gestionar los horarios de cobro referentes a ese pedido
+      <br>4.- En la parte superior de la lista se puede realizar una búsqueda de clientes filtrando la información de acuerdo a los campos llenados y selecionando el botón "Buscar"
+    </p>
+  </div>
+</div>
 <div class="global-container">
   <div class="title">
     <h2>Clientes</h2>
@@ -40,10 +39,8 @@
         <li>Número de teléfono</li>
         <li> </li>
         <li> </li>
-        <!-- <li colspan="3"></li> -->
       </ul>
     </div>
-
     <div class="table-ul-2">
       <% @clients.each do |client| %>
         <ul>

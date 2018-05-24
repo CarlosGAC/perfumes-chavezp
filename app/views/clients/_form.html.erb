@@ -1,8 +1,7 @@
 <%= form_for(client) do |f| %>
   <% if client.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(client.errors.count, "errores") %> evitó que se guardara el cliente:</h3>
-
+      <h3><%= pluralize(client.errors.count, "errores") %> evitaron que se guardara el cliente:</h3>
       <ul>
       <% client.errors.full_messages.each do |message| %>
         <li><%= message %></li>

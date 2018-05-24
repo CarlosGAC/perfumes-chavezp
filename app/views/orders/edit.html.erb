@@ -1,17 +1,17 @@
-
 <div class="instruction-box">
   <div class="ib-title" onclick="toggleShow()">
     <p>Instrucciones de ayuda</p>
   </div>
   <div id="inst_show-more" class="ib-text">
-      <p>Pasos para editar correctamente un artículo del pedido:
+    <p>Pasos para editar correctamente un artículo del pedido:
       <br>1.- Reemplazar el nombre del perfume por otro presente en la base de datos
       <br>2.- Ingresar la cantidad a solicitar
       <br>3.- Indicar el estado en el que se encuentra el articulo, seleccionándolo en la lista desplegable
       <br>4.- Seleccionar el botón agregar
-      <br><br>
-      *Nota: Revisar ortografía y demás validaciones requeridas para llenar correctamente un formulario</p>
-
+      <br>
+      <br>
+      *Nota: Revisar ortografía y demás validaciones requeridas para llenar correctamente un formulario
+    </p>
   </div>
 </div>
 <div class="global-container">
@@ -21,8 +21,5 @@
   </div>
   <div class="new-container">
     <%= render 'form2', order: @order %>
-    <div class="show-links">
-      <!-- <%= link_to 'Atrás', order_datum_orders_path(@order_datum) %> -->
-    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
-
 <div class="global-container">
   <div class="show-container">
+    
     <ul>
       <li><strong>Nombre </strong></li>
       <li><%= @perfume.name %></li>
@@ -42,8 +42,10 @@
     </ul>
 
   </div>
+  
   <div class="show-links get-down">
     <li><%= link_to 'Editar', edit_perfume_path(@perfume) %></li>
     <li><%= link_to 'Atrás', perfumes_path %></li>
   </div>
+  
 </div>

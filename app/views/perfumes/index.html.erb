@@ -7,8 +7,7 @@
         <br>1.- Para añadir perfumes se selecciona el boton "Nuevo Perfume"
         <br>2.- Para editar un perfume existente se selecciona el botón "Editar" que se encuentra debajo del perfume respectivo
         <br>3.- En la parte superior del catálogo se puede realizar una búsqueda filtrando la información de acuerdo a los campos llenados y selecionando el botón "Buscar"
-        </p>
-
+      </p>
   </div>
 </div>
 <div class="global-container">
@@ -31,76 +30,64 @@
         <li><%= select_tag :visibility, options_for_select(Perfume.visibilities), include_blank: true %></li>
         <li><%= submit_tag "Buscar"%></li>
       </ul>
-    
-
     <%end%>
   </div>
   <div class="producto-container">
     <% @perfumes.each do |perfume| %>
-    <div class="producto-iis">
-      <div class="producto-left">
-        <div class="producto-img">
-          <% if perfume.picture.exists? %>
-          <%= image_tag perfume.picture.url(:thumb) %>
-          <% else %>
-          <%= image_tag("Not_an_image.png", id: "perfume-img", :title => "Home") %>
-          <%end%>
-        </div>
-        <div class="prod-margin">
-          
-        </div>
-        
-        <ul>
-          <li>Presentación </li>
-          <li><%= perfume.presentation %> mililitros</li>
-        </ul>
-        <!-- <ul>
-          <li>Visibilidad </li>
-          <li><%= perfume.visibility %></li>
-        </ul> -->
-      </div>
-      <div class="producto-right">
-      
-        <ul>
-          <li>Nombre </li>
-          <li><%= perfume.name %></li>
-        </ul>
-
-        <ul>
-          <li>Precio  de venta </li> <!--real-->
-          <li><%= perfume.retail_price %></li>
-        </ul>
-        <ul>
-          <li>Stock </li>
-          <li><%= perfume.stock %></li>
-        </ul>
-        <ul>
-          <li>Público </li>
-          <li><%= perfume.public_target %></li>
-        </ul>
-        <ul>
-          <li>Clasificación </li>
-          <li><%= perfume.classification %></li>
-        </ul>
-        <ul>
-          <li>Categoría </li>
-          <li><%= perfume.category %></li>
-        </ul>
-      
-        <!-- <div>
+      <div class="producto-iis">
+        <div class="producto-left">
+          <div class="producto-img">
+            <% if perfume.picture.exists? %>
+            <%= image_tag perfume.picture.url(:thumb) %>
+            <% else %>
+            <%= image_tag("Not_an_image.png", id: "perfume-img", :title => "Home") %>
+            <%end%>
+          </div>
+          <div class="prod-margin"></div>    
           <ul>
-            <li><button onclick="toggleShow">Mostrar mas</button></li> -->
-            <!-- <a href="javascript:;" onclick="toggleShow()" class="button_show-more">Mostrar mas</a>
+            <li>Presentación </li>
+            <li><%= perfume.presentation %> mililitros</li>
           </ul>
-        </div> -->
+
+        </div>
+        <div class="producto-right">
+        
+          <ul>
+            <li>Nombre </li>
+            <li><%= perfume.name %></li>
+          </ul>
+
+          <ul>
+            <li>Precio  de venta </li> <!--real-->
+            <li><%= perfume.retail_price %></li>
+          </ul>
+          
+          <ul>
+            <li>Stock </li>
+            <li><%= perfume.stock %></li>
+          </ul>
+          
+          <ul>
+            <li>Público </li>
+            <li><%= perfume.public_target %></li>
+          </ul>
+          
+          <ul>
+            <li>Clasificación </li>
+            <li><%= perfume.classification %></li>
+          </ul>
+          
+          <ul>
+            <li>Categoría </li>
+            <li><%= perfume.category %></li>
+          </ul>
+
+        </div>
+        <div class="producto-se">
+          <%= link_to 'Mostrar', perfume %>
+          <%= link_to 'Editar', edit_perfume_path(perfume) %>
+        </div>
       </div>
-      <div class="producto-se">
-        <%= link_to 'Mostrar', perfume %>
-        <%= link_to 'Editar', edit_perfume_path(perfume) %>
-        <!-- <%= link_to 'Destroy', perfume, method: :delete, data: { confirm: 'Are you sure?' } %> -->
-      </div>
-    </div>
     <% end %>
-    <!-- <%= link_to 'New Perfume', new_perfume_path %> -->
   </div>
 </div>

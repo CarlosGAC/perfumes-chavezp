@@ -27,9 +27,7 @@
           <%= link_to "Iniciar sesión", new_user_session_path %>
         <%end%>
       </div>
-      
     </section>
-
     <div class="contenedor">
       <%= content_tag(:p, flash[:error], :id => "notice") if flash[:error] %>
       <%= content_tag(:p, flash[:notice], :id => "notice") if flash[:notice] %>

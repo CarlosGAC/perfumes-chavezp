@@ -1,15 +1,4 @@
 <%= form_with(model: bill, local: true) do |form| %>
-  <% if bill.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this order_datum from being saved:</h2>
-
-      <ul>
-      <% bill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-container">
     <ul>
       <li><%= form.label :bill_date, "Fecha" %></li>
@@ -36,7 +25,6 @@
       <li><%= form.label :amount, "Cantidad" %></li>
       <li><%= form.number_field :amount, step: 1 %></li>
     </ul>
-
 
     <ul>
       <li class="li-submit"><%= form.submit "Agregar"%></li>

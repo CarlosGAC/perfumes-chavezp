@@ -5,19 +5,16 @@
   <div class="schedules-container">
     <div class="table-ul-1">
       <% if !@schedules.blank?%>
-      <% @schedules.each do |sch| %>
-      <ul>
-        <li>Cliente: <%=sch.client.name%></li>
-        <li>Hora: <%=sch.hour.strftime("%l:%M %p")%></li>
-        <li>Lugar: <%=sch.place%></li>
-
-      </ul>
-      <%end%>
+        <% @schedules.each do |sch| %>
+          <ul>
+            <li>Cliente: <%=sch.client.name%></li>
+            <li>Hora: <%=sch.hour.strftime("%l:%M %p")%></li>
+            <li>Lugar: <%=sch.place%></li>
+          </ul>
+        <%end%>
       <% else %>
-      <p>No hay cobros para hoy</p>
+        <p>No hay cobros para hoy</p>
       <%end%>
     </div>
   </div>
-
-
 </div>
